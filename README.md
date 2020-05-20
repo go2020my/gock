@@ -332,6 +332,9 @@ func main() {
   // Response body is the original
   body, _ := ioutil.ReadAll(res.Body)
   fmt.Printf("Body: %s", string(body))
+
+  // Verify that we don't have pending mocks
+  st.Expect(t, gock.IsDone(), true)
 }
 ```
 
